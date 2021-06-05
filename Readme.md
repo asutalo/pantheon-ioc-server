@@ -32,12 +32,26 @@ After you extend Endpoints class you have a choice of overriding the default met
 Overriding these will allow your Endpoint to process the corresponding requests, should a request come using a method 
 which is not implemented by you, it will respond with ***501***.
 
-Each of the methods above responds with a *Response* object, and you can use the existing *SimpleResponse* class 
-or create your own implementation as appropriate.
+Each of the methods above responds with a *Response* object, and you can use the existing *SimpleResponse* class or
+create your own implementation as appropriate.
 
-In case you need to respond with errors, the Server contains an IocServerException class you can extend in any of your 
+In case you need to respond with errors, the Server contains an IocServerException class you can extend in any of your
 custom exceptions and throw them instead of the Response object from your endpoints.
 
-Additionally, the Endpoint methods will provide you with a Map of Uri params, the body (which has to come in ***json*** 
-format), and Headers. The headers are an Immutable Map however in case you need to add headers to your Response, you 
-can do so by overriding the `getHeaders` method. The Server will add your custom headers to the response.
+Additionally, the Endpoint methods will provide you with a Map of Uri params, the body (which has to come in ***json***
+format), and Headers. The headers are an Immutable Map however in case you need to add headers to your Response, you can
+do so by overriding the `getHeaders` method. The Server will add your custom headers to the response.
+
+## Importing
+
+The library is available via jitpack, gradle example:
+
+````
+   repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+   }
+   dependencies {
+         implementation 'com.github.asutalo:ioc-server:1.0.0'
+   }
+````
