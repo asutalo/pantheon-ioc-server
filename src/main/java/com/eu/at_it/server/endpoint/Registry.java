@@ -5,20 +5,8 @@ import com.eu.at_it.server.response.exception.NotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Main entry point to enable the server to serve your endpoints.
- * Simply register all endpoints before starting the server.
- */
 public class Registry {
-    private static final Registry INSTANCE = new Registry();
     private final Map<String, Endpoint> endpoints = new HashMap<>();
-
-    private Registry() {
-    }
-
-    public static Registry getInstance() {
-        return INSTANCE;
-    }
 
     public void registerEndpoint(Endpoint endpoint) {
         String parsedUriDefinition = endpoint.parsedUriDefinition();

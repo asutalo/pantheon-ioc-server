@@ -1,5 +1,6 @@
 package com.eu.at_it.server;
 
+import com.eu.at_it.server.endpoint.Endpoint;
 import com.eu.at_it.server.endpoint.EndpointProcessor;
 import com.eu.at_it.server.endpoint.Registry;
 import com.eu.at_it.server.request.Handler;
@@ -48,9 +49,8 @@ public class Server {
         this.httpServer = HttpServer.create();
         this.validator = new Validator();
         parsingService = ParsingService.getInstance();
-        registry = Registry.getInstance();
+        registry = new Registry();
         endpointProcessor = new EndpointProcessor();
-
     }
 
     /**
@@ -63,6 +63,10 @@ public class Server {
         httpServer.createContext("/", new Handler(validator, parsingService, registry, endpointProcessor));
         httpServer.setExecutor(threadPoolExecutor);
         httpServer.start();
+    }
+
+    public void registerEndpoint(Endpoint endpoint) {
+        registry.registerEndpoint(endpoint);
     }
 
     ThreadPoolExecutor threadPoolExecutor() {

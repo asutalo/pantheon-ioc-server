@@ -1,5 +1,7 @@
 package com.eu.at_it.server;
 
+import com.eu.at_it.server.endpoint.Endpoint;
+import com.eu.at_it.server.endpoint.Registry;
 import com.eu.at_it.server.request.Handler;
 import com.sun.net.httpserver.HttpServer;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.InetSocketAddress;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -19,7 +22,10 @@ import java.util.concurrent.TimeUnit;
 import static com.eu.at_it.server.Server.INSTANT_STOP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
@@ -103,6 +109,20 @@ class ServerTest {
         @Test
         void server_shouldInitialiseHttpServer() {
             assertNotNull(server.getHttpServer());
+        }
+
+        @Test
+        void register_shouldPassEndpointToRegistry() throws NoSuchFieldException, IllegalAccessException {
+            Endpoint mockEndpoint = mock(Endpoint.class);
+            Registry mockRegistry = mock(Registry.class);
+
+            Field registryField = server.getClass().getDeclaredField("registry");
+            registryField.setAccessible(true);
+            registryField.set(server, mockRegistry);
+
+            server.registerEndpoint(mockEndpoint);
+
+            verify(mockRegistry).registerEndpoint(mockEndpoint);
         }
     }
 
