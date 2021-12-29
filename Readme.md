@@ -70,14 +70,6 @@ When the main method is executed navigate to `http://localhost:8080/helloWorld` 
 
 ## Importing
 
-The library is available via jitpack, gradle example:
+The library is available via jitpack: [![](https://jitpack.io/v/asutalo/ioc-server.svg)](https://jitpack.io/#asutalo/ioc-server)
 
-````
-   repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-   }
-   dependencies {
-         implementation 'com.github.asutalo:ioc-server:1.0.0'
-   }
 ````
