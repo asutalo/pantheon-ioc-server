@@ -70,6 +70,4 @@ When the main method is executed navigate to `http://localhost:8080/helloWorld` 
 
 ## Importing
 
-The library is available via jitpack: [![](https://jitpack.io/v/asutalo/ioc-server.svg)](https://jitpack.io/#asutalo/ioc-server)
-
-````
+The library is available via [![](https://jitpack.io/v/asutalo/ioc-server.svg)](https://jitpack.io/#asutalo/ioc-server)
