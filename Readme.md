@@ -1,11 +1,14 @@
-# IoC Server
+# Pantheon IoC Server
 
-Results of a simple experiment to create a library that provides fast REST server setup with minimum impact on your 
-code style. Full frameworks tend to force a particular way of writing and testing code and IoC Server aims to avoid 
-that as much as possible.
+Results of a simple experiment to create a library that provides fast REST server setup with minimum impact on your code
+style. Full frameworks tend to force a particular way of writing and testing code and IoC Server aims to avoid that as
+much as possible.
+
+The experiment escalated a bit so now there is a set of tools created around using this library under the name
+of [Pantheon](https://github.com/asutalo/pantheon).
 
 At this point not recommended being taken seriously and used in anything other than experiments where you need a fast
-start. 
+start.
 
 ## Usage
 
