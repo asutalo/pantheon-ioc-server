@@ -1,8 +1,10 @@
 package com.eu.at_it.pantheon.server.response;
 
+import com.eu.at_it.pantheon.server.endpoints.Response;
+
 /**
  * A utility class, most basic version of a Response
- * */
+ */
 public class SimpleResponse implements Response {
     private final int statusCode;
     private final String message;

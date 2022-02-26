@@ -1,7 +1,6 @@
 package com.eu.at_it.pantheon.server.endpoint;
 
 import com.eu.at_it.pantheon.server.request.parsing.Parser;
-import com.eu.at_it.pantheon.server.response.exception.NotImplementedException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,7 +8,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Stream;
 
 class RequestEndpointTest {
@@ -45,18 +43,6 @@ class RequestEndpointTest {
         RequestEndpoint endpoint = new TestRequestEndpoint(parsedUriDefinition, List.of());
 
         Assertions.assertEquals(shouldMatch, endpoint.match(matching));
-    }
-
-    @Test
-    void actionsThrowNotImplementedExceptionByDefault() {
-        RequestEndpoint endpoint = new TestRequestEndpoint("", List.of());
-
-        Assertions.assertThrows(NotImplementedException.class, () -> endpoint.head(Map.of(), Map.of(), null));
-        Assertions.assertThrows(NotImplementedException.class, () -> endpoint.put(Map.of(), Map.of(), null));
-        Assertions.assertThrows(NotImplementedException.class, () -> endpoint.post(Map.of(), Map.of(), null));
-        Assertions.assertThrows(NotImplementedException.class, () -> endpoint.delete(Map.of(), Map.of(), null));
-        Assertions.assertThrows(NotImplementedException.class, () -> endpoint.patch(Map.of(), Map.of(), null));
-        Assertions.assertThrows(NotImplementedException.class, () -> endpoint.get(Map.of(), Map.of(), null));
     }
 
     static class TestRequestEndpoint extends RequestEndpoint {

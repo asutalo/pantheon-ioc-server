@@ -1,10 +1,11 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'base'
 }
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 group 'com.eu.atit'
@@ -22,11 +23,12 @@ project.ext.setProperty("release.disableChecks", "true")
 project.ext.setProperty("release.pushTagsOnly", "true")
 
 dependencies {
+    api 'com.github.asutalo:pantheon:0.0.13'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
-    testImplementation 'org.mockito:mockito-core:4.2.0'
-    testImplementation 'org.mockito:mockito-junit-jupiter:4.2.0'
+    testImplementation 'org.mockito:mockito-core:4.3.1'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.3.1'
 }
 
 test {

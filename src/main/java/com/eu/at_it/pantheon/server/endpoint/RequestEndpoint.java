@@ -1,12 +1,9 @@
 package com.eu.at_it.pantheon.server.endpoint;
 
+import com.eu.at_it.pantheon.server.endpoints.PantheonEndpoint;
 import com.eu.at_it.pantheon.server.request.parsing.Parser;
-import com.eu.at_it.pantheon.server.response.Response;
-import com.eu.at_it.pantheon.server.response.exception.NotImplementedException;
-import com.sun.net.httpserver.Headers;
 
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
@@ -14,7 +11,7 @@ import java.util.regex.Pattern;
  * Describes all supported HTTP verbs and the supported interactions and provides the plumbing for enabling
  * internal endpoint mapping
  */
-abstract class RequestEndpoint {
+abstract class RequestEndpoint implements PantheonEndpoint {
     private final String parsedUriDefinition;
     private final List<Parser> uriParsers;
     private final Pattern uriMatchingPattern;
@@ -35,29 +32,5 @@ abstract class RequestEndpoint {
 
     String parsedUriDefinition() {
         return parsedUriDefinition;
-    }
-
-    public Response head(Map<String, Object> uriParams, Map<String, Object> requestBody, Headers requestHeaders) {
-        throw new NotImplementedException();
-    }
-
-    public Response get(Map<String, Object> uriParams, Map<String, Object> requestBody, Headers requestHeaders) {
-        throw new NotImplementedException();
-    }
-
-    public Response put(Map<String, Object> uriParams, Map<String, Object> requestBody, Headers requestHeaders) {
-        throw new NotImplementedException();
-    }
-
-    public Response post(Map<String, Object> uriParams, Map<String, Object> requestBody, Headers requestHeaders) {
-        throw new NotImplementedException();
-    }
-
-    public Response patch(Map<String, Object> uriParams, Map<String, Object> requestBody, Headers requestHeaders) {
-        throw new NotImplementedException();
-    }
-
-    public Response delete(Map<String, Object> uriParams, Map<String, Object> requestBody, Headers requestHeaders) {
-        throw new NotImplementedException();
     }
 }

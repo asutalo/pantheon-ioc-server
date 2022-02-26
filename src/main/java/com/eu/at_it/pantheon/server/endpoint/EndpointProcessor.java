@@ -1,7 +1,7 @@
 package com.eu.at_it.pantheon.server.endpoint;
 
+import com.eu.at_it.pantheon.server.endpoints.Response;
 import com.eu.at_it.pantheon.server.request.parsing.ParsingService;
-import com.eu.at_it.pantheon.server.response.Response;
 import com.eu.at_it.pantheon.server.response.exception.NotFoundException;
 import com.sun.net.httpserver.HttpExchange;
 

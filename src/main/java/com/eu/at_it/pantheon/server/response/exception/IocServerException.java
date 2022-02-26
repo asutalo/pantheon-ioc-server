@@ -1,6 +1,6 @@
 package com.eu.at_it.pantheon.server.response.exception;
 
-import com.eu.at_it.pantheon.server.response.Response;
+import com.eu.at_it.pantheon.server.endpoints.Response;
 
 /**
  * Standard wrapper for IoC Server exceptions to conform to a Response object
