@@ -1,7 +1,7 @@
 package com.eu.at_it.pantheon.server.request;
 
-import com.eu.at_it.pantheon.server.endpoint.Endpoint;
 import com.eu.at_it.pantheon.server.endpoint.EndpointProcessor;
+import com.eu.at_it.pantheon.server.endpoint.IoCEndpoint;
 import com.eu.at_it.pantheon.server.endpoint.Registry;
 import com.eu.at_it.pantheon.server.endpoints.Response;
 import com.eu.at_it.pantheon.server.request.parsing.ParsingService;
@@ -33,7 +33,7 @@ public class Handler implements HttpHandler {
         try {
             String decodedUriString = parsingService.decodeUri(httpExchange);
             validator.validateUri(decodedUriString);
-            Endpoint endpoint = registry.getEndpoint(decodedUriString);
+            IoCEndpoint endpoint = registry.getEndpoint(decodedUriString);
             Response response = endpointProcessor.process(endpoint, parsingService, decodedUriString, httpExchange);
             respond(httpExchange, response);
         } catch (IocServerException iocServerException) {

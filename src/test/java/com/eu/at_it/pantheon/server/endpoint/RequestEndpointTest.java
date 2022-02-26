@@ -49,5 +49,10 @@ class RequestEndpointTest {
         public TestRequestEndpoint(String parsedUriDefinition, List<Parser> uriParsers) {
             super(parsedUriDefinition, uriParsers);
         }
+
+        @Override
+        public String uriDefinition() {
+            return null;
+        }
     }
 }

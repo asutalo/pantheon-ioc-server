@@ -20,7 +20,7 @@ class RegistryTest {
 
     @Test
     void registerEndpoint_shouldAddNewEndpoint() {
-        Map<String, Endpoint> startingEndpoints = new HashMap<>(registry.getEndpoints());
+        Map<String, IoCEndpoint> startingEndpoints = new HashMap<>(registry.getEndpoints());
 
         registry.registerEndpoint(new TestEndpoint(""));
 

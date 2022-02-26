@@ -19,7 +19,7 @@ public abstract class Endpoint extends RequestEndpoint {
         this.uriDefinition = uriDefinition;
     }
 
-    String uriDefinition() {
+    public String uriDefinition() {
         return uriDefinition;
     }
 }

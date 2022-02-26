@@ -1,7 +1,7 @@
 package com.eu.at_it.pantheon.server;
 
-import com.eu.at_it.pantheon.server.endpoint.Endpoint;
 import com.eu.at_it.pantheon.server.endpoint.EndpointProcessor;
+import com.eu.at_it.pantheon.server.endpoint.IoCEndpoint;
 import com.eu.at_it.pantheon.server.endpoint.Registry;
 import com.eu.at_it.pantheon.server.request.Handler;
 import com.eu.at_it.pantheon.server.request.parsing.ParsingService;
@@ -65,7 +65,7 @@ public class Server {
         httpServer.start();
     }
 
-    public void registerEndpoint(Endpoint endpoint) {
+    public void registerEndpoint(IoCEndpoint endpoint) {
         registry.registerEndpoint(endpoint);
     }
 

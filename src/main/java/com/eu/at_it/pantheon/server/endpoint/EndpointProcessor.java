@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class EndpointProcessor {
 
-    public Response process(Endpoint endpoint, ParsingService parsingService, String decodedUriString, HttpExchange httpExchange) throws IOException {
+    public Response process(IoCEndpoint endpoint, ParsingService parsingService, String decodedUriString, HttpExchange httpExchange) throws IOException {
         Map<String, Object> uriParams = parsingService.parseRequestUri(
                 decodedUriString, endpoint.uriParsers()
         );

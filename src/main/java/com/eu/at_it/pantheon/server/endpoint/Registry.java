@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Registry {
-    private final Map<String, Endpoint> endpoints = new HashMap<>();
+    private final Map<String, IoCEndpoint> endpoints = new HashMap<>();
 
-    public void registerEndpoint(Endpoint endpoint) {
+    public void registerEndpoint(IoCEndpoint endpoint) {
         String parsedUriDefinition = endpoint.parsedUriDefinition();
 
         if (!endpoints.containsKey(parsedUriDefinition)) {
@@ -19,12 +19,12 @@ public class Registry {
         }
     }
 
-    public Endpoint getEndpoint(String uriString) {
+    public IoCEndpoint getEndpoint(String uriString) {
         return endpoints.values().stream().filter(endpoint -> endpoint.match(uriString)).findFirst().orElseThrow(NotFoundException::new);
     }
 
     //for tests
-    public Map<String, Endpoint> getEndpoints() {
+    public Map<String, IoCEndpoint> getEndpoints() {
         return endpoints;
     }
 
