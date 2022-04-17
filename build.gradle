@@ -7,6 +7,8 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
+apply plugin: 'maven-publish'
+
 group 'com.eu.atit'
 
 sourceCompatibility = '1.15'
@@ -19,7 +21,7 @@ project.ext.setProperty("release.disableChecks", "true")
 project.ext.setProperty("release.pushTagsOnly", "true")
 
 dependencies {
-    api 'com.github.asutalo:pantheon:0.0.18'
+    api 'com.github.asutalo:pantheon:0.0.19'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
