@@ -7,8 +7,6 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
-apply plugin: 'maven-publish'
-
 group 'com.eu.atit'
 
 sourceCompatibility = '1.15'
